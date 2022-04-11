@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{%extends 'reporting/base.html' %}
+
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-7">
+            <h1 class="text-center">TimeSheets</h1>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+             <form action="">
+                {{filter.form}}
+                <div class="mb-3 form-select">
+                    <input type="date" name="date" id="id_date">
+<!--                    {{filter.form.batch}}-->
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="user" id="id_user">
+                </div>
+                <input type="submit" class="btn btn-success" value="Search">
+            </form>
+            </div>
+        <div class="col-7">
+            <table class="table">
+                <tr class="border">
+                    <td class="border">Batch Name</td>
+                    <td class="border">User</td>
+                    <td class="border">Topic</td>
+                    <td class="border">Topic_status</td>
+                    <td class="border">Verified</td>
+                    <td class="border">Date</td>
+                    <td class="border">Action</td>
+                </tr>
+                {%for timesheet in timesheets%}
+                <tr>
+                    <td class="border">{{timesheet.batch}}</td>
+                    <td class="border">{{timesheet.user}}</td>
+                    <td class="border">{{timesheet.topic}}</td>
+                    <td class="border">{{timesheet.topic_status}}</td>
+                    <td class="border">{{timesheet.verified}}</td>
+                    <td class="border">{{timesheet.date}}</td>
+                    <td class="border">
+                        <a href="{%url 'edittimesheet' timesheet.id%}" class="btn btn-success">Edit</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+        <div class="col-1">
+
+        </div>
+    </div>
+</div>
+{%endblock%}

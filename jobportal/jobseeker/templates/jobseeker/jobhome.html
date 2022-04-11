@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{%extends 'jobseeker/jbase.html' %}
+
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <form action="" method="post">
+                {%csrf_token%}
+                {{form.as_p}}
+
+                <h1 class="text-center" style="color: black">JOBSEEKER HOME</h1>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-3 text-center">
+            <a href="{%url 'padd' %}" class="btn btn-danger" >ADD PROFILE</a>
+        </div>
+        <div class="col-3 text-center">
+            <a href="{%url 'plist' %}" class="btn btn-danger">LIST PROFILE</a>
+        </div>
+        <div class="col-3 text-center">
+            <a href="{%url 'joblist' %}" class="btn btn-danger">VIEW JOBS</a>
+        </div>
+<!--        <div class="col-3 text-center">-->
+<!--            <a href="{%url 'jlist' %}" class="btn btn-danger">LIST JOB</a>-->
+<!--        </div>-->
+    </div>
+</div>
+
+{%endblock%}

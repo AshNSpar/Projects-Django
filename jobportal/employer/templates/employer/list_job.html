@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{%extends 'employer/base.html' %}
+
+{%block body_block%}
+
+<div class="container">
+    <div class="row">
+          {%for job in jobs%}
+          <div class="card" style="width: 18rem;">
+            <img src="{{company.logo.url}}" class="card-img-top" alt="...">
+            <div class="card-body" >
+            <h4 class="card-title">{{job.company}}</h4>
+            <h7 class="card-text">post : {{job.post_name}}</h7>
+            <h7 class="card-text">Qualification : {{job.qualification}}</h7>
+            <h7 class="card-text">Experience : {{job.experience}}</h7>
+            <p class="card-text"> Description : {{job.description}}</p>
+            <a href="{%url 'jedit' job.id%}" class="btn btn-primary">Update</a>
+            </div>
+          </div>
+            {%endfor%}
+        </div>
+</div>
+
+{%endblock%}

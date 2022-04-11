@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{%extends 'employer/base.html' %}
+
+{%block body_block%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <form action="" method="post">
+                {%csrf_token%}
+                {{form.as_p}}
+
+                <h1 class="text-center" style="color: black">ADMIN HOME</h1>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-4 text-center">
+            <a href="{%url 'cadd' %}" class="btn btn-danger" >ADD COMPANY</a>
+        </div>
+        <div class="col-4 text-center">
+            <a href="{%url 'clist' %}" class="btn btn-danger">LIST COMPANY</a>
+        </div>
+        <div class="col-4 text-center">
+            <a href="{%url 'jadd' %}" class="btn btn-danger">ADD JOB</a>
+        </div>
+    </div>
+
+    <div class="row">
+          <div class="col-4 text-center mt-10">
+            <a href="{%url 'jlist' %}" class="btn btn-danger">LIST JOB</a>
+        </div>
+
+        <div class="col-4 text-center">
+            <a href="{%url 'appview' %}" class="btn btn-danger" >VIEW APPLICANTS</a>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4"><h1>Available Books</h1></div>
+    <div class="col-4"></div>
+</div>
+<div class="container">
+    <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <form action="" method="post">
+                        {%csrf_token%}
+                        {{form.as_p}}
+<!--                        {%for field in form%}-->
+<!--                        {{field.label_tag}}-->
+<!--                        {{field}}-->
+<!--                        {%endfor%}-->
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <table border="1" class="table">
+                <tr>
+                    <td class="border">DOCTOR NAME</td>
+                    <td class="border">DEPARTMENT</td>
+                    <td class="border">DUTY TIME</td>
+                    <td class="border">FEES</td>
+                    <td class="border text-center">ACTION</td>
+                </tr>
+               {%for doctor in doctors%}
+                <tr>
+                    <td class="border">{{doctor.doctor_name}}</td>
+                    <td class="border">{{doctor.department}}</td>
+                    <td class="border">{{doctor.duty_time}}</td>
+                    <td class="border">{{doctor.fees}}</td>
+                    <td class="border">
+                        <a href="{%url 'doctordetails' doctor.id%}" class="btn btn-success">View</a>
+                        <a href="{%url 'doctorchange' doctor.id%}" class="btn btn-warning">Update</a>
+                        <a href="{%url 'doctorremove' doctor.id%}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+        <div class="col-2">
+            </div>
+
+    </div>
+</div>
+</body>
+</html>

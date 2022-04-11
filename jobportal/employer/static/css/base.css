@@ -1,0 +1,20 @@
+*{
+ margin : 0;
+ padding : 0;
+}
+
+nav {
+     background: linear-gradient(90deg, #d4eece, #d4eece, #d4eece),
+              url("../images/bg.png") no-repeat;
+              background-blend-mode: multiply;
+              background-size: cover;
+}
+
+body {
+  background: linear-gradient(90deg, #d4eece, #d4eece, #d4eece),
+              url("../images/bg.png") no-repeat;
+              background-blend-mode: multiply;
+              background-size: cover;
+}
+
+

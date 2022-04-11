@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <table class="table">
+                <tr class="border">
+                    <td class="border">Course Name</td>
+                    <td class="border">Batch Name</td>
+                    <td>Action</td>
+                </tr>
+                {%for batch in batches%}
+                <tr>
+                    <td class="border">{{batch.course}}</td>
+                    <td class="border">{{batch.batch_name}}</td>
+                    <td class="border"><a href="{%url 'editbatch' batch.id %}" class="btn btn-success">Edit
+                    </a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4"><a href="{%url 'addbatch' %}" class="btn btn-success">Add</a></div>
+        <div class="col-4"></div>
+    </div>
+</div>
+</body>
+</html>

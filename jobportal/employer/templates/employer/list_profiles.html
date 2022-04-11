@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{%extends 'employer/base.html' %}
+
+{%block body_block%}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            {%for profile in profiles%}
+          <div class="card" style="width: 18rem;">
+            <img src="{{profile.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body" >
+            <h4 class="card-title">{{profile.job}}</h4>
+            <h7 class="card-text">skill : {{profile.job_seeker}}</h7>
+            <h7 class="card-text">resume : {{profile.application_status}}</h7>
+
+<!--            <a href="{%url 'pedit' profile.id%}" class="btn btn-primary">EDIT PROFILE</a>-->
+            </div>
+          </div>
+            {%endfor%}
+        </div>
+        <div class="col-2"></div>
+        </div>
+</div>
+
+{%endblock%}
